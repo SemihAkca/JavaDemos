@@ -2,6 +2,6 @@ package dataAccess;
 
 import entities.Course;
 
-public interface ICourseDao {
+public interface CourseDao {
     void add(Course course);
 }

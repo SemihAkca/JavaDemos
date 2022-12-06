@@ -1,18 +1,18 @@
 package business;
 
-import core.loging.ILogger;
-import dataAccess.ICourseDao;
+import core.loging.Logger;
+import dataAccess.CourseDao;
 import entities.Course;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CourseManager {
-    ICourseDao courseDao;
+    CourseDao courseDao;
     List<Course> courses =  new ArrayList<>();
-    ILogger[] loggers;
+    Logger[] loggers;
 
-    public CourseManager(ICourseDao courseDao,ILogger[] loggers) {
+    public CourseManager(CourseDao courseDao, Logger[] loggers) {
         this.courseDao = courseDao;
         this.loggers = loggers;
     }
@@ -31,7 +31,7 @@ public class CourseManager {
         else{
             courses.add(course);
             courseDao.add(course);
-            for(ILogger logger: loggers){
+            for(Logger logger: loggers){
                 logger.log(course.getCourseName());
             }
         }

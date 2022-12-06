@@ -2,6 +2,6 @@ package dataAccess;
 
 import entities.Category;
 
-public interface ICategoryDao {
+public interface CategoryDao {
     void add(Category category);
 }

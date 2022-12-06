@@ -2,6 +2,6 @@ package dataAccess;
 
 import entities.Instructor;
 
-public interface IInstructorDao {
+public interface InstructorDao {
     void add(Instructor instructor);
 }

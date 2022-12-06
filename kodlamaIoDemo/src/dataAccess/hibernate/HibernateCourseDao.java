@@ -1,11 +1,9 @@
 package dataAccess.hibernate;
 
-import dataAccess.ICourseDao;
+import dataAccess.CourseDao;
 import entities.Course;
 
-import java.util.List;
-
-public class HibernateCourseDao implements ICourseDao {
+public class HibernateCourseDao implements CourseDao {
     @Override
     public void add(Course course) {
         System.out.println(course.getCourseName() +" added with Hibernate");

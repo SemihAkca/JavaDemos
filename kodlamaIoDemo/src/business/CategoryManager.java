@@ -1,19 +1,19 @@
 package business;
 
-import core.loging.ILogger;
-import dataAccess.ICategoryDao;
+import core.loging.Logger;
+import dataAccess.CategoryDao;
 import entities.Category;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryManager {
-    ICategoryDao categoryDao;
+    CategoryDao categoryDao;
     List<Category> categories = new ArrayList<>();
 
-    ILogger[] loggers;
+    Logger[] loggers;
 
-    public CategoryManager(ICategoryDao categoryDao,ILogger[] loggers) {
+    public CategoryManager(CategoryDao categoryDao, Logger[] loggers) {
         this.categoryDao = categoryDao;
         this.loggers = loggers;
     }
@@ -31,7 +31,7 @@ public class CategoryManager {
         else{
             categories.add(category);
             categoryDao.add(category);
-            for(ILogger logger: loggers){
+            for(Logger logger: loggers){
                 logger.log(category.getCategoryName());
             }
         }

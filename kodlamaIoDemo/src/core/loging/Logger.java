@@ -1,5 +1,5 @@
 package core.loging;
 
-public interface ILogger {
+public interface Logger {
     void log(String data);
 }

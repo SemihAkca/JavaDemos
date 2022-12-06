@@ -1,10 +1,9 @@
 import business.CategoryManager;
 import business.CourseManager;
 import business.InstructorManager;
-import core.loging.DataBaseILogger;
-import core.loging.EmailILogger;
-import core.loging.FileILogger;
-import core.loging.ILogger;
+import core.loging.DataBaseLogger;
+import core.loging.FileLogger;
+import core.loging.Logger;
 import dataAccess.hibernate.HibernateCourseDao;
 import dataAccess.hibernate.HibernateInstructorDao;
 import dataAccess.jdbc.JdbcCategoryDao;
@@ -14,7 +13,7 @@ import entities.Instructor;
 
 public class Main {
     public static void main(String[] args) {
-        ILogger[] loggers = {new DataBaseILogger(), new FileILogger()};
+        Logger[] loggers = {new DataBaseLogger(), new FileLogger()};
 
         Course course1 = new Course(1,"Yazılım Geliştirici Yetiştirme Kampı",400);
         CourseManager courseManager = new CourseManager(new HibernateCourseDao(),loggers);
