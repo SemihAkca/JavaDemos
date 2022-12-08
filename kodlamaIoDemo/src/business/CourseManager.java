@@ -9,14 +9,15 @@ import java.util.List;
 
 public class CourseManager {
     CourseDao courseDao;
-    List<Course> courses =  new ArrayList<>();
+    List<Course> courses;
     Logger[] loggers;
 
     public CourseManager(CourseDao courseDao, Logger[] loggers) {
         this.courseDao = courseDao;
         this.loggers = loggers;
+        courses = new ArrayList<>();
     }
-    public void add(Course course){
+    public void add(Course course) throws Exception {
         boolean status = true;
         for( Course course1 : courses){
             if (course1.getCourseName().equals(course.getCourseName()) || course.getPrice()<0){
@@ -26,7 +27,7 @@ public class CourseManager {
         }
         if (!status)
         {
-            System.out.println("Invalid Course name");
+            throw new Exception("Invalid Course");
         }
         else{
             courses.add(course);

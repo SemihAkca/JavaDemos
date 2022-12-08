@@ -18,7 +18,7 @@ public class CategoryManager {
         this.loggers = loggers;
     }
 
-    public void add(Category category){
+    public void add(Category category) throws Exception {
         boolean status = true;
         for (Category category1 : categories){
             if (category1.getCategoryName().equals(category.getCategoryName())){
@@ -26,7 +26,9 @@ public class CategoryManager {
                 break;
             }
         }
-        if (!status){System.out.println("Invalid Categoty Name");}
+        if (!status){
+            throw new Exception("Invalid CategoryName");
+        }
 
         else{
             categories.add(category);
